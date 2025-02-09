@@ -9,7 +9,7 @@ part 'data_state.dart';
 class DataBloc extends Bloc<DataEvent, DataState> {
   DataBloc() : super(DataInitial()) {
     on<LoadData>((event, emit) async {
-      await getPREFS();
+      await getDATA();
       emit(DataLaoded());
     });
 
@@ -39,5 +39,10 @@ class DataBloc extends Bloc<DataEvent, DataState> {
       await saveINT('currentBG', currentBG);
       emit(DataLaoded());
     });
+
+    // on<AddStats>((event, emit) async {
+    //   statsList.insert(0, event.stats);
+    //   emit(DataLaoded());
+    // });
   }
 }

@@ -24,8 +24,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/fonts/
   fonts:
     - family: w400
       fonts:
-        - asset: assets/fonts/LilitaOne-Regular.ttf
+        - asset: assets/LilitaOne-Regular.ttf

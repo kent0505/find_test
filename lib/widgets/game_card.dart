@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../core/models/game.dart';
-import 'button.dart';
-import 'svg_widget.dart';
+import 'btn.dart';
+import 'svg_wid.dart';
 
 class GameCard extends StatelessWidget {
   const GameCard({
@@ -18,7 +18,7 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Button(
+    return Btn(
       onPressed: canTap
           ? () {
               onPressed(game);
@@ -44,15 +44,14 @@ class GameCard extends StatelessWidget {
           ),
         ),
         child: Center(
-            child: game.active
-                ? SvgWidget('assets/${game.id}.svg')
-                : Opacity(
-                    opacity: 0.2, child: SvgWidget('assets/${game.id}.svg'))
-            // : Image.asset(
-            //     'assets/question.png',
-            //     color: Colors.greenAccent,
-            //   ),
-            ),
+          child: game.active
+              ? SvgWid('assets/${game.id}.svg')
+              // : Opacity(opacity: 0.2, child: SvgWid('assets/${game.id}.svg'))
+              : Image.asset(
+                  'assets/question.png',
+                  color: Colors.greenAccent,
+                ),
+        ),
       ),
     );
   }

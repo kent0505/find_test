@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/data/data_bloc.dart';
 import '../core/utils.dart';
-import '../widgets/button.dart';
+import '../widgets/btn.dart';
 import '../widgets/scaffold2.dart';
 import '../widgets/title_widget.dart';
 
@@ -142,7 +142,7 @@ class _ShopItem extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(
+              Btn(
                 onPressed: bought
                     ? () {
                         context.read<DataBloc>().add(SelectBG(id: id));

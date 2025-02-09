@@ -23,11 +23,16 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     on<ShuffleGames>((event, emit) async {
       games.shuffle();
+      remember = false;
+      canTap = true;
       for (Game game in games) {
         game.active = false;
         game.done = false;
       }
-      emit(GamesLoaded(games: games));
+      emit(GamesLoaded(
+        games: games,
+        started: event.started,
+      ));
     });
 
     on<SelectGame>((event, emit) async {
@@ -65,6 +70,20 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     on<FinishGame>((event, emit) async {
       emit(GameOver(win: event.win));
+    });
+
+    on<ExitGame>((event, emit) async {
+      games.shuffle();
+      remember = false;
+      canTap = true;
+      for (Game game in games) {
+        game.active = false;
+        game.done = false;
+      }
+      emit(GamesLoaded(
+        games: games,
+        started: false,
+      ));
     });
   }
 }

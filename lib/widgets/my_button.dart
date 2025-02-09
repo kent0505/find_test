@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'button.dart';
+import 'btn.dart';
 
-class MainButton extends StatelessWidget {
-  const MainButton({
+class MyButton extends StatelessWidget {
+  const MyButton({
     super.key,
     required this.title,
     this.active = true,
@@ -24,7 +24,7 @@ class MainButton extends StatelessWidget {
         color: Color(0xff5D2B67),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Button(
+      child: Btn(
         onPressed: active ? onPressed : null,
         child: Center(
           child: Text(

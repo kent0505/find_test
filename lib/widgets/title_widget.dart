@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'button.dart';
-import 'svg_widget.dart';
+import 'btn.dart';
+import 'svg_wid.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget({
@@ -32,10 +32,10 @@ class TitleWidget extends StatelessWidget {
               color: Color(0xff5D2B67),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Button(
+            child: Btn(
               onPressed: Navigator.of(context).pop,
               child: Center(
-                child: SvgWidget(
+                child: SvgWid(
                   'assets/back.svg',
                   color: Colors.white,
                 ),

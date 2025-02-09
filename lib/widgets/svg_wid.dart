@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SvgWidget extends StatelessWidget {
-  const SvgWidget(
-    this.assetName, {
+class SvgWid extends StatelessWidget {
+  const SvgWid(
+    this.asset, {
     super.key,
     this.height,
-    this.width,
     this.color,
     this.fit = BoxFit.contain,
   });
 
-  final String assetName;
+  final String asset;
   final double? height;
-  final double? width;
+
   final Color? color;
   final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      assetName,
+      asset,
       height: height,
-      width: width,
       fit: fit,
       colorFilter: color != null
           ? ColorFilter.mode(

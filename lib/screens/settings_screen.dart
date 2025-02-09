@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/main_button.dart';
+import '../widgets/my_button.dart';
 import '../widgets/scaffold2.dart';
 import '../widgets/title_widget.dart';
 import 'privacy_screen.dart';
@@ -19,7 +19,7 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MainButton(
+                MyButton(
                   title: 'TERMS OF USE',
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(
@@ -30,7 +30,7 @@ class SettingsScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 40),
-                MainButton(
+                MyButton(
                   title: 'PRIVACY POLICY',
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(

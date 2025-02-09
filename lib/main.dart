@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'blocs/data/data_bloc.dart';
 import 'blocs/game/game_bloc.dart';
 import 'blocs/timer/timer_bloc.dart';
-import 'core/themes.dart';
 import 'screens/loading_screen.dart';
 
 void main() {
@@ -36,7 +35,17 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: theme,
+        theme: ThemeData(
+          useMaterial3: false,
+          brightness: Brightness.dark,
+          dialogTheme: const DialogTheme(
+            backgroundColor: Colors.transparent,
+            insetPadding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(24)),
+            ),
+          ),
+        ),
         home: LoadingScreen(),
       ),
     );

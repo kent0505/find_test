@@ -23,3 +23,9 @@ final class SelectBG extends DataEvent {
 
   final int id;
 }
+
+// final class AddStats extends DataEvent {
+//   AddStats({required this.stats});
+
+//   final Stats stats;
+// }

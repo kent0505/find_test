@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/data/data_bloc.dart';
 import '../widgets/loading_widget.dart';
 import '../widgets/scaffold2.dart';
-import '../widgets/svg_widget.dart';
+import '../widgets/svg_wid.dart';
 import 'home_screen.dart';
 
 class LoadingScreen extends StatelessWidget {
@@ -39,7 +39,7 @@ class LoadingScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            SvgWidget(
+            SvgWid(
               'assets/alien1.svg',
               height: 300,
             ),

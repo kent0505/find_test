@@ -1,12 +1,12 @@
 import 'dart:ui';
 
-import 'package:find_test/blocs/data/data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/data/data_bloc.dart';
 import '../blocs/game/game_bloc.dart';
-import 'main_button.dart';
-import 'svg_widget.dart';
+import 'my_button.dart';
+import 'svg_wid.dart';
 
 class GameOverDialog extends StatelessWidget {
   const GameOverDialog({super.key, required this.win});
@@ -32,7 +32,7 @@ class GameOverDialog extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              SvgWidget(
+              SvgWid(
                 win ? 'assets/alien3.svg' : 'assets/alien4.svg',
                 height: 300,
               ),
@@ -56,14 +56,20 @@ class GameOverDialog extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              MainButton(
+              MyButton(
                 title: 'CLOSE',
                 onPressed: () {
                   Navigator.pop(context);
-                  context.read<GameBloc>().add(ShuffleGames());
+                  context.read<GameBloc>().add(ShuffleGames(started: false));
                   context
                       .read<DataBloc>()
                       .add(AddCoins(coins: win ? 200 : -200));
+                  // context.read<DataBloc>().add(AddStats(
+                  //       stats: Stats(
+                  //         id: getTimestamp(),
+                  //         title: '',
+                  //       ),
+                  //     ));
                 },
               ),
               SizedBox(height: 40)

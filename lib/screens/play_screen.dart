@@ -6,7 +6,7 @@ import '../blocs/game/game_bloc.dart';
 import '../blocs/timer/timer_bloc.dart';
 import '../widgets/game_over_dialog.dart';
 import '../widgets/game_card.dart';
-import '../widgets/main_button.dart';
+import '../widgets/my_button.dart';
 import '../widgets/scaffold2.dart';
 import '../widgets/title_widget.dart';
 
@@ -18,6 +18,7 @@ class PlayScreen extends StatelessWidget {
     return PopScope(
       onPopInvokedWithResult: (didPop, result) {
         context.read<TimerBloc>().add(FinishTimer());
+        context.read<GameBloc>().add(ExitGame());
       },
       child: Scaffold2(
         body: Column(
@@ -100,11 +101,17 @@ class PlayScreen extends StatelessWidget {
               ),
             ),
             Spacer(),
-            MainButton(
-              title: 'START',
-              onPressed: () {
-                context.read<TimerBloc>().add(StartTimer(seconds: 60));
-                context.read<GameBloc>().add(ShuffleGames());
+            BlocBuilder<GameBloc, GameState>(
+              builder: (context, state) {
+                return MyButton(
+                  title: state is GamesLoaded && state.started
+                      ? 'RESTART'
+                      : 'START',
+                  onPressed: () {
+                    context.read<TimerBloc>().add(StartTimer(seconds: 60));
+                    context.read<GameBloc>().add(ShuffleGames(started: true));
+                  },
+                );
               },
             ),
             SizedBox(height: 40),

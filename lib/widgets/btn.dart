@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Button extends StatelessWidget {
-  const Button({
+class Btn extends StatelessWidget {
+  const Btn({
     super.key,
     this.onPressed,
     this.padding = 0,
