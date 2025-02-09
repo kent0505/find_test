@@ -34,6 +34,12 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
       emit(TimerStopped());
     });
 
+    on<FinishTimer>((event, emit) {
+      _timer?.cancel();
+      logger('TIMER FINISHED');
+      emit(TimerFinished());
+    });
+
     on<TickTimer>((event, emit) {
       logger('TICK');
       emit(TimerStarted(second: event.second));

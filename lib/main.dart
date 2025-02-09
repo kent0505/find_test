@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'blocs/crud/crud_bloc.dart';
+import 'blocs/data/data_bloc.dart';
 import 'blocs/game/game_bloc.dart';
 import 'blocs/timer/timer_bloc.dart';
 import 'core/themes.dart';
@@ -22,15 +22,15 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
-    precacheImage(AssetImage('assets/question.png'), context);
     precacheImage(AssetImage('assets/bg1.png'), context);
     precacheImage(AssetImage('assets/bg2.png'), context);
     precacheImage(AssetImage('assets/bg3.png'), context);
     precacheImage(AssetImage('assets/coin.png'), context);
+    precacheImage(AssetImage('assets/question.png'), context);
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => CrudBloc()..add(GetModels())),
+        BlocProvider(create: (context) => DataBloc()..add(LoadData())),
         BlocProvider(create: (context) => GameBloc()..add(LoadGames())),
         BlocProvider(create: (context) => TimerBloc()),
       ],

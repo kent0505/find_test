@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/crud/crud_bloc.dart';
+import '../blocs/data/data_bloc.dart';
 import '../widgets/loading_widget.dart';
 import '../widgets/scaffold2.dart';
 import '../widgets/svg_widget.dart';
@@ -13,9 +13,9 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold2(
-      body: BlocListener<CrudBloc, CrudState>(
+      body: BlocListener<DataBloc, DataState>(
         listener: (context, state) {
-          if (state is ModelsLoaded) {
+          if (state is DataLaoded) {
             Future.delayed(
               const Duration(seconds: 2),
               () {

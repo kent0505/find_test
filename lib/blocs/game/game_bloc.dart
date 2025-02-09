@@ -14,7 +14,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   GameBloc() : super(GameInitial()) {
     on<LoadGames>((event, emit) async {
-      emit(GamesLoading());
       games.addAll(generateGames(13));
       emit(GamesLoaded(
         games: games,
@@ -23,7 +22,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     });
 
     on<ShuffleGames>((event, emit) async {
-      logger('SHUFFLE');
       games.shuffle();
       for (Game game in games) {
         game.active = false;
@@ -34,7 +32,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     on<SelectGame>((event, emit) async {
       if (event.game.active) return;
-      logger('NOT ACTIVE');
       for (Game game in games) {
         if (game.index == event.game.index) game.active = true;
       }
@@ -67,7 +64,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     });
 
     on<FinishGame>((event, emit) async {
-      logger('FINISH');
       emit(GameOver(win: event.win));
     });
   }

@@ -12,3 +12,5 @@ final class TimerStarted extends TimerState {
 }
 
 final class TimerStopped extends TimerState {}
+
+final class TimerFinished extends TimerState {}

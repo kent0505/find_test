@@ -8,7 +8,7 @@ class TitleWidget extends StatelessWidget {
     super.key,
     this.title = '',
     this.play = false,
-    this.seconds = 30,
+    this.seconds = 60,
   });
 
   final String title;
@@ -20,6 +20,7 @@ class TitleWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         top: 20 + MediaQuery.of(context).viewPadding.top,
+        bottom: 20,
       ),
       child: Row(
         children: [
@@ -69,10 +70,10 @@ class TitleWidget extends StatelessWidget {
                           children: [
                             AnimatedContainer(
                               duration:
-                                  Duration(seconds: seconds == 30 ? 1 : 30),
+                                  Duration(seconds: seconds == 60 ? 1 : 60),
                               margin: EdgeInsets.symmetric(horizontal: 3),
                               decoration: BoxDecoration(
-                                color: seconds < 30
+                                color: seconds < 60
                                     ? Colors.redAccent
                                     : Colors.greenAccent,
                                 borderRadius: BorderRadius.circular(26),
@@ -80,7 +81,7 @@ class TitleWidget extends StatelessWidget {
                               child: AnimatedContainer(
                                 duration: Duration(seconds: 1),
                                 height: 20,
-                                width: (seconds / 30) * 120,
+                                width: (seconds / 60) * 120,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(26),
                                 ),
@@ -96,6 +97,7 @@ class TitleWidget extends StatelessWidget {
                   child: Center(
                     child: Text(
                       title,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,

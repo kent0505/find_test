@@ -8,8 +8,8 @@ final theme = ThemeData(
   //   accentColor: AppColors.main, // overscroll indicator color
   // ),
 
-  // DIALOG
   dialogTheme: const DialogTheme(
+    backgroundColor: Colors.transparent,
     insetPadding: EdgeInsets.zero,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(24)),

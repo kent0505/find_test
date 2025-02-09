@@ -5,8 +5,6 @@ sealed class GameState {}
 
 final class GameInitial extends GameState {}
 
-final class GamesLoading extends GameState {}
-
 final class GamesLoaded extends GameState {
   GamesLoaded({
     required this.games,
